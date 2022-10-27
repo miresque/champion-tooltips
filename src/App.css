@@ -1,38 +1,148 @@
-.App {
-  text-align: center;
+* {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* GENERAL HUD */
+.champ-hud {
+  border: 1px solid red;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+  position: fixed;
+  bottom: 0;
+  left: 26.93%;
+  width: 42.35%;
+  height: 14%;
+  gap: 2px;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  padding: 2px;
 }
 
-.App-link {
-  color: #61dafb;
+.champ-runes {
+  color: gold;
+  flex-basis: 18%;
+  border: 1px solid gold;
+  border-radius: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+.champ-abilities {
+  color: blue;
+  flex-basis: 54%;
+  border: 1px solid blue;
+}
+
+.champ-inventory {
+  color: lime;
+  flex-basis: 28%;
+  border: 1px solid lime;
+}
+
+/* ABILITY CHAMPION SECTION */
+.ability {
+  height: 100%;
+}
+
+#spellMinor-tooltip_wrapper,
+#spell-tooltip_wrapper {
+  height: 30%;
+}
+
+.champ-abilities {
+  display: grid;
+  grid-template-columns: 73.42% 1fr;
+  gap: 1%;
+}
+
+.champ-abilities_spells {
+  border: 1px solid rgb(179, 0, 255);
+  display: flex;
+  flex-direction: row;
+  padding: 7% 0;
+  gap: 3.7%;
+}
+
+.spellPassive-wrapper{
+  flex-basis: 14%;
+  height: 33.65%;
+  border: 1px solid blue;
+}
+
+.spellPassive {
+  background-color: rgba(245, 4, 4, 0.144);
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.spellQ-wrapper,
+.spellW-wrapper,
+.spellE-wrapper,
+.spellR-wrapper {
+  flex-basis: 21.5%;
+  height: 52%;
+  border: 1px solid blue;
+}
+
+.spellQ,
+.spellW,
+.spellE,
+.spellR {
+  background-color: rgba(245, 4, 4, 0.732);
+  width: 100%;
+  height: 100%;
+}
+
+.runes {
+  background-color: rgba(255, 217, 0, 0.393);
+  display: grid;
+  place-content: center;
+  height: 100%;
+  border-radius: 50%;
+}
+
+/* ABILITIES SUMMONERS SECTION */
+.champ-abilities_summoners {
+  border: 1px solid rgb(255, 4, 0);
+
+  display: flex;
+  flex-direction: row;
+  padding: 20% 5%;
+  gap: 7%;
+
+}
+
+.summoner1-wrapper,
+.summoner2-wrapper {
+  width: 50%;
+  height: 38%;
+  border: 1px solid blue;
+}
+
+.summoner1,
+.summoner2 {
+  background-color: rgba(245, 4, 4, 0.732);
+  width: 100%;
+  height: 100%;
+}
+
+
+@media (min-width: 1250px) {
+  .champ-abilities_spells {
+    padding: 7% 1% 7% 3%;
+    gap: 4.5%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .spellPassive-wrapper {
+    flex-basis: 15%;
+  }
+
+  .spellQ-wrapper,
+  .spellW-wrapper,
+  .spellE-wrapper,
+  .spellR-wrapper {
+    flex-basis: 20.75%;
   }
 }
