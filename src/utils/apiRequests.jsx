@@ -32,7 +32,7 @@ const getCurrentPlayerData = async () => {
 
 const getChampionAbilities = async (currentPlayer) => {
   const championName = currentPlayer.championName;
-  const champDataLink = `http://ddragon.leagueoflegends.com/cdn/12.20.1/data/en_US/champion/${championName}.json`;
+  const champDataLink = `https://ddragon.leagueoflegends.com/cdn/12.20.1/data/en_US/champion/${championName}.json`;
   const champDataLinkResponse = await axios.get(champDataLink);
   return {
     passive: champDataLinkResponse.data.data[championName].passive,
@@ -41,7 +41,7 @@ const getChampionAbilities = async (currentPlayer) => {
 }
 
 const getSummonerSpells = async (currentPlayer) => {
-  const summonersLink = 'http://ddragon.leagueoflegends.com/cdn/12.20.1/data/en_US/summoner.json'
+  const summonersLink = 'https://ddragon.leagueoflegends.com/cdn/12.20.1/data/en_US/summoner.json'
   const summonersResponse = await axios.get(summonersLink)
 
   const filteredSummonerSpellOne = Object.values(summonersResponse.data.data).find(summonerSpell => summonerSpell.name === currentPlayer.summonerSpells.summonerSpellOne.displayName)
