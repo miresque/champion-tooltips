@@ -4,6 +4,10 @@
   margin: 0;
 }
 
+p {
+  font-size: 75%;
+}
+
 /* GENERAL HUD */
 .champ-hud {
   border: 1px solid red;
@@ -49,8 +53,12 @@
 #spellQ-tooltip_wrapper,
 #spellW-tooltip_wrapper,
 #spellE-tooltip_wrapper,
-#spellR-tooltip_wrapper {
-  height: 30%;
+#spellR-tooltip_wrapper,
+#summoner1-tooltip_wrapper,
+#summoner2-tooltip_wrapper {
+  min-height: 30%;
+  max-width: 12%;
+  padding: 1%;
 }
 
 .champ-abilities {
@@ -133,6 +141,10 @@
 
 
 @media (min-width: 1250px) {
+  p {
+    font-size: 100%;
+  }
+
   .champ-abilities_spells {
     padding: 7% 1% 7% 3%;
     gap: 4.5%;

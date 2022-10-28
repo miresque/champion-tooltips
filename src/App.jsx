@@ -1,12 +1,14 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import { getTooltipData } from "./utils/apiRequests";
-import Ability from "./components/AbilityTooltip/Ability";
-import Item from "./components/ItemTooltip/Item";
-import Runes from "./components/RunesTooltip/Runes";
+import Ability from "./components/Abilities/Ability";
+import Item from "./components/Items/Item";
+import Runes from "./components/Runes/Runes";
 import ReactTooltip from "react-tooltip";
+import SummonerSpell from "./components/Summoners/SummonerSpell";
 
 const abilityBuilder = ['Passive', 'Q', 'W', 'E', 'R']
+const summonersBuilder = ['summoner1', 'summoner2']
 
 function App() {
   const [summonerData, setSummonerData] = useState(null)
@@ -58,93 +60,19 @@ function App() {
                 />
               )
             }
-            {/* <li className="spellPassive-wrapper">
-              <p
-                className="spellPassive"
-                data-for="spellMinor-tooltip_wrapper"
-                data-tip="Passive"
-              ></p>
-              <ReactTooltip
-                id="spellMinor-tooltip_wrapper"
-                getContent={dataTip => <Ability dataTip={dataTip} abilityData={summonerData?.abilities} />}
-                effect="solid"
-              />
-            </li>
-            <li className="spellQ-wrapper">
-              <p
-                className="spellQ"
-                data-for="spell-tooltip_wrapper"
-                data-tip="Q"
-              ></p>
-              <ReactTooltip
-                id="spell-tooltip_wrapper"
-                getContent={dataTip => <Ability dataTip={dataTip} />}
-                effect="solid"
-              />
-            </li>
-            <li className="spellW-wrapper">
-              <p
-                className="spellW"
-                data-for="spell-tooltip_wrapper"
-                data-tip="W"
-              ></p>
-              <ReactTooltip
-                id="spell-tooltip_wrapper"
-                getContent={dataTip => <Ability dataTip={dataTip} />}
-                effect="solid"
-              />
-            </li>
-            <li className="spellE-wrapper">
-              <p
-                className="spellE"
-                data-for="spell-tooltip_wrapper"
-                data-tip="E"
-              ></p>
-              <ReactTooltip
-                id="spell-tooltip_wrapper"
-                getContent={dataTip => <Ability dataTip={dataTip} />}
-                effect="solid"
-              />
-            </li>
-            <li className="spellR-wrapper">
-              <p
-                className="spellR"
-                data-for="spell-tooltip_wrapper"
-                data-tip="R"
-              ></p>
-              <ReactTooltip
-                id="spell-tooltip_wrapper"
-                getContent={dataTip => <Ability dataTip={dataTip} />}
-                effect="solid"
-              />
-            </li> */}
           </ul>
-          {/* <ul className="champ-abilities_summoners">
-            <li className="summoner1-wrapper">
-              <p
-                className="summoner1"
-                data-for="spellMinor-tooltip_wrapper"
-                data-tip="Summoner"
-              ></p>
-              <ReactTooltip
-                id="spellMinor-tooltip_wrapper"
-                getContent={dataTip => <Ability dataTip={dataTip} />}
-                effect="solid"
-              />
-            </li>
-            <li className="summoner2-wrapper">
-              <p
-                className="summoner2"
-                data-for="spellMinor-tooltip_wrapper"
-                data-tip="Summoner"
-              ></p>
-              <ReactTooltip
-                id="spellMinor-tooltip_wrapper"
-                getContent={dataTip => <Ability dataTip={dataTip} />}
-                effect="solid"
-              />
-            </li>
-          </ul> */}
+            
+          <ul className="champ-abilities_summoners">
+            {
+              summonersBuilder.map((sum, index) => 
+                <SummonerSpell
+                  key={index}
+                  dataTip={sum}
+                  summonerSpellData={summonerData?.summonerSpells[index]}
+                />
+              )
+            }
+          </ul>
         </div>
 
         <div className="champ-inventory">
