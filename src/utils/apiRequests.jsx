@@ -51,3 +51,10 @@ const getSummonerSpells = async (currentPlayer) => {
     filteredSummonerSpellTwo,
   ]
 }
+
+export const getSpellIconUrl = (spell, type) => {
+  if (type === 'Passive') {
+    return `https://ddragon.leagueoflegends.com/cdn/12.20.1/img/passive/${spell}`
+  } 
+  return `https://ddragon.leagueoflegends.com/cdn/12.20.1/img/spell/${spell}`
+}
