@@ -6,8 +6,11 @@ import Item from "./components/ItemTooltip/Item";
 import Runes from "./components/RunesTooltip/Runes";
 import ReactTooltip from "react-tooltip";
 
+const abilityBuilder = ['Passive', 'Q', 'W', 'E', 'R']
+
 function App() {
-  const [summonerData, setSummonerData] = useState({})
+  const [summonerData, setSummonerData] = useState(null)
+
   useEffect(() => {
     getTooltipData()
       .then(data => setSummonerData(data))
@@ -15,6 +18,7 @@ function App() {
   
   useEffect(() => {
     console.log('summonerData', summonerData)
+    ReactTooltip.rebuild();
   }, [summonerData])
 
   return (
@@ -38,7 +42,23 @@ function App() {
 
         <div className="champ-abilities">
           <ul className="champ-abilities_spells">
-            <li className="spellPassive-wrapper">
+            {
+              abilityBuilder.map((ab, index) => 
+                <Ability
+                 key={index} 
+                 index={index} 
+                 dataTip={ab} 
+                 abilityData={
+                  index === 0
+                  ? 
+                  summonerData?.abilities.passive
+                  :
+                  summonerData?.abilities.spells[index - 1]
+                 } 
+                />
+              )
+            }
+            {/* <li className="spellPassive-wrapper">
               <p
                 className="spellPassive"
                 data-for="spellMinor-tooltip_wrapper"
@@ -46,7 +66,7 @@ function App() {
               ></p>
               <ReactTooltip
                 id="spellMinor-tooltip_wrapper"
-                getContent={dataTip => <Ability dataTip={dataTip} />}
+                getContent={dataTip => <Ability dataTip={dataTip} abilityData={summonerData?.abilities} />}
                 effect="solid"
               />
             </li>
@@ -97,9 +117,9 @@ function App() {
                 getContent={dataTip => <Ability dataTip={dataTip} />}
                 effect="solid"
               />
-            </li>
+            </li> */}
           </ul>
-          <ul className="champ-abilities_summoners">
+          {/* <ul className="champ-abilities_summoners">
             <li className="summoner1-wrapper">
               <p
                 className="summoner1"
@@ -124,7 +144,7 @@ function App() {
                 effect="solid"
               />
             </li>
-          </ul>
+          </ul> */}
         </div>
 
         <div className="champ-inventory">

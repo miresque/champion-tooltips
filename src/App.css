@@ -45,8 +45,11 @@
   height: 100%;
 }
 
-#spellMinor-tooltip_wrapper,
-#spell-tooltip_wrapper {
+#spellPassive-tooltip_wrapper,
+#spellQ-tooltip_wrapper,
+#spellW-tooltip_wrapper,
+#spellE-tooltip_wrapper,
+#spellR-tooltip_wrapper {
   height: 30%;
 }
 
