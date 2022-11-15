@@ -31,7 +31,7 @@ const getCurrentPlayerData = async () => {
 }
 
 const getChampionAbilities = async (currentPlayer) => {
-  const championName = currentPlayer.championName;
+  const championName = currentPlayer.championName.replace(/\s+/g, '');
   const champDataLink = `https://ddragon.leagueoflegends.com/cdn/12.20.1/data/en_US/champion/${championName}.json`;
   const champDataLinkResponse = await axios.get(champDataLink);
   return {
