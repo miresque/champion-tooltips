@@ -19,7 +19,6 @@ function App() {
   }, [])
   
   useEffect(() => {
-    console.log('summonerData', summonerData)
     ReactTooltip.rebuild();
   }, [summonerData])
 
