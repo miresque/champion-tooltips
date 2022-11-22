@@ -10,8 +10,6 @@ p {
 
 /* GENERAL HUD */
 .champ-hud {
-  border: 1px solid red;
-
   position: fixed;
   bottom: 0;
   left: 26.93%;
@@ -25,23 +23,20 @@ p {
 }
 
 .champ-runes {
-  color: gold;
   flex-basis: 18%;
-  border: 1px solid gold;
   border-radius: 50%;
 }
 
 
 .champ-abilities {
-  color: blue;
+  padding-left: 2%;
+  padding-right: 1%;
   flex-basis: 54%;
-  border: 1px solid blue;
 }
 
 .champ-inventory {
   color: lime;
   flex-basis: 28%;
-  border: 1px solid lime;
 }
 
 /* ABILITY CHAMPION SECTION */
@@ -57,8 +52,9 @@ p {
 #summoner1-tooltip_wrapper,
 #summoner2-tooltip_wrapper {
   min-height: 30%;
-  max-width: 12%;
-  padding: 1%;
+  max-width: 13%;
+  padding: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(34,34,34,1) 50%, rgba(34,34,34,1) 100%);
 }
 
 .champ-abilities {
@@ -68,7 +64,6 @@ p {
 }
 
 .champ-abilities_spells {
-  border: 1px solid rgb(179, 0, 255);
   display: flex;
   flex-direction: row;
   padding: 7% 0;
@@ -78,11 +73,9 @@ p {
 .spellPassive-wrapper{
   flex-basis: 14%;
   height: 33.65%;
-  border: 1px solid blue;
 }
 
 .spellPassive {
-  background-color: rgba(245, 4, 4, 0.144);
   display: inline-block;
   width: 100%;
   height: 100%;
@@ -94,49 +87,82 @@ p {
 .spellR-wrapper {
   flex-basis: 21.5%;
   height: 52%;
-  border: 1px solid blue;
 }
 
 .spellQ,
 .spellW,
 .spellE,
 .spellR {
-  background-color: rgba(245, 4, 4, 0.732);
   width: 100%;
   height: 100%;
 }
 
+.tooltip {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 0.8rem;
+  padding: 3% 3% 6% 3%;
+}
+
+.tooltip-header {
+  display: grid;
+  grid-template-columns: 3rem auto;
+}
+
+.tooltip-header img {
+  width: 100%;
+  border: 1px solid rgba(218, 165, 32, 0.5);
+}
+
+.tooltip-header div {
+  text-align: end;
+}
+
+.tooltip-header p {
+  font-size: smaller;
+}
+
+.tooltip-main {
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid rgb(93, 93, 93);
+  padding-top: 2%;
+}
+
 .runes {
-  background-color: rgba(255, 217, 0, 0.393);
   display: grid;
   place-content: center;
   height: 100%;
-  border-radius: 50%;
 }
 
 /* ABILITIES SUMMONERS SECTION */
 .champ-abilities_summoners {
-  border: 1px solid rgb(255, 4, 0);
-
   display: flex;
   flex-direction: row;
   padding: 20% 5%;
   gap: 7%;
-
 }
 
 .summoner1-wrapper,
 .summoner2-wrapper {
   width: 50%;
   height: 38%;
-  border: 1px solid blue;
 }
 
 .summoner1,
 .summoner2 {
-  background-color: rgba(245, 4, 4, 0.732);
   width: 100%;
   height: 100%;
+}
+
+.summoner1:hover,
+.summoner2:hover,
+.spellPassive:hover,
+.spellQ:hover,
+.spellW:hover,
+.spellE:hover,
+.spellR:hover {
+  background-color: rgba(255, 255, 255, 0.137);  
 }
 
 

@@ -7,22 +7,28 @@ const ToolTip = ({ dataTip, abilityData }) => {
   const spellIconUrl = getSpellIconUrl(abilityData.image.full, dataTip);
 
   useEffect(() => {
-    console.log("testingas testin", ability);
     setAbility(abilityData);
     ReactTooltip.rebuild();
+    // eslint-disable-next-line
   }, [abilityData]);
 
   return (
-    <div className={"tooltip-" + dataTip?.toLowerCase()}>
-      <img src={spellIconUrl} alt={ability.name + " icon"} />
-      <h3>{ability.name + " (" + dataTip + ")"}</h3>
-      {dataTip !== "Passive" && (
-        <>
-          <p className="manacost">{"Cost: " + ability.costBurn}</p>
-          <p className="cooldown">{"Cooldown: " + ability.cooldownBurn}</p>
-        </>
-      )}
-      <p className="spell-description">{ability.description}</p>
+    <div className="tooltip">
+      <header className="tooltip-header">
+        <img src={spellIconUrl} alt={ability.name + " icon"} />
+        <div>
+          <h4>{ability.name + " (" + dataTip + ")"}</h4>
+          {dataTip !== "Passive" && (
+            <>
+              <p className="manacost">{"Cost: " + ability.costBurn}</p>
+              <p className="cooldown">{"Cooldown: " + ability.cooldownBurn}</p>
+            </>
+          )}
+        </div>
+      </header>
+      <main className="tooltip-main">
+        <p className="spell-description">{ability.description}</p>
+      </main>
     </div>
   );
 };

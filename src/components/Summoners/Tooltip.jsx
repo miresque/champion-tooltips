@@ -7,29 +7,35 @@ const ToolTip = ({ dataTip, summonerSpellData }) => {
   const spellIconUrl = getSpellIconUrl(summonerSpellData.image.full, dataTip);
 
   useEffect(() => {
-    console.log("testingas testin", summonerSpell);
     setSummonerSpell(summonerSpellData);
     ReactTooltip.rebuild();
+    // eslint-disable-next-line
   }, [summonerSpellData]);
 
   return (
-    <div className={"tooltip-" + dataTip?.toLowerCase()}>
-      <img src={spellIconUrl} alt={summonerSpell.name + " icon"} />
-      <h3>
-        {summonerSpell.name +
-          " (" +
-          (dataTip === "summoner1" ? "Summoner Spell 1" : "Summoner Spell 2") +
-          ")"}
-      </h3>
-      {dataTip !== "Passive" && (
-        <>
-          <p className="manacost">No Cost</p>
-          <p className="cooldown">
-            {"Cooldown: " + summonerSpell.cooldownBurn}
-          </p>
-        </>
-      )}
-      <p className="spell-description">{summonerSpell.description}</p>
+    <div className="tooltip">
+      <header className="tooltip-header">
+        <img src={spellIconUrl} alt={summonerSpell.name + " icon"} />
+        <div>
+          <h4>
+            {summonerSpell.name +
+              " (" +
+              (dataTip === "summoner1" ? "Summoner Spell 1" : "Summoner Spell 2") +
+              ")"}
+          </h4>
+          {dataTip !== "Passive" && (
+            <>
+              <p className="manacost">No Cost</p>
+              <p className="cooldown">
+                {"Cooldown: " + summonerSpell.cooldownBurn}
+              </p>
+            </>
+          )}
+        </div>
+      </header>
+      <main className="tooltip-main">
+        <p className="spell-description">{summonerSpell.description}</p>
+      </main>
     </div>
   );
 };
