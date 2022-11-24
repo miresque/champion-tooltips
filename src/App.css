@@ -52,7 +52,7 @@ p {
 #summoner1-tooltip_wrapper,
 #summoner2-tooltip_wrapper {
   min-height: 30%;
-  max-width: 13%;
+  max-width: 16%;
   padding: 0;
   background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(34,34,34,1) 50%, rgba(34,34,34,1) 100%);
 }
